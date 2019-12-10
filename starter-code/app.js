@@ -16,7 +16,7 @@ function sum(a, b) { //eslint-disable-line
 }
 
 // Here is the test for sum(); uncomment it to run it
-// testSum(4, 7);
+testSum(4, 7);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -29,15 +29,19 @@ Write a function called multiply() that takes in two numbers as arguments and re
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiply() function and see if the test passes.*/
 
 // Write your code here
+// function multiply(a, b) { //eslint-disable-line
+//   var multiplyAnswer = a * b;
+//   var stringMultiplyAnswer = 'The product of ' + a + ' and ' + b + ' is ' + multiplyAnswer + '.';
+//   console.log(stringMultiplyAnswer);
+//   return [multiplyAnswer, stringMultiplyAnswer];
+// }
+
 function multiply(a, b) { //eslint-disable-line
-  var multiplyAnswer = a * b;
-  var stringMultiplyAnswer = 'The product of ' + a + ' and ' + b + ' is ' + multiplyAnswer + '.';
-  console.log(stringMultiplyAnswer);
-  return [multiplyAnswer, stringMultiplyAnswer];
+  return [a*b, `The product of ${a} and ${b} is ${a * b}.`];
 }
 
 // Here is the test for multiply(); uncomment it to run it
-// testMultiply(5,9);
+testMultiply(5,9);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -53,12 +57,21 @@ IMPORTANT DETAIL: You may not use the arithmetic operators + and * in this funct
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumAndMultiply() function and see if the test passes.*/
 
 // Write your code here
+// function sumAndMultiply(a, b, c) { //eslint-disable-line
+//   var sumAnswer3 = sum(a, b)[0] + c;
+//   var stringSumAnswer3 =  + a + ' and ' + b + ' and ' + c + ' sum to ' + sumAnswer3 + '.';
+//   var multiplyAnswer3 = multiply(a, b)[0] * c;
+//   var stringMultiplyAnswer3 = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + multiplyAnswer3 + '.';
+//   return [sumAnswer3, multiplyAnswer3, stringSumAnswer3, stringMultiplyAnswer3];
+// }
+
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-  var sumAnswer3 = sum(a, b)[0] + c;
+  var sumAnswer3 = sum( sum(a, b)[0], c)[0];
   var stringSumAnswer3 =  + a + ' and ' + b + ' and ' + c + ' sum to ' + sumAnswer3 + '.';
-  var multiplyAnswer3 = multiply(a, b)[0] * c;
+  var multiplyAnswer3 = multiply( multiply(a, b)[0], c)[0];
   var stringMultiplyAnswer3 = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + multiplyAnswer3 + '.';
   return [sumAnswer3, multiplyAnswer3, stringSumAnswer3, stringMultiplyAnswer3];
+  console.log (sumAnswer3, multiplyAnswer3, stringSumAnswer3, stringMultiplyAnswer3);
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
